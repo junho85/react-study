@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <title>June's react</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
+
+<div id="content"></div>
+
+<script type="text/jsx">
+
+    var JunesComponent = React.createClass({
+        doSomething: function() {
+            alert("The text displaying is: " + this.props.children);
+        },
+        render: function() {
+            return (
+                    <div>
+                        <h3>{this.props.user}</h3>
+                        <a onClick={this.doSomething} href="#">Click me</a>
+                    </div>
+            );
+        }
+    });
+
+    React.render(
+            <div>
+                <JunesComponent user="June">Children1</JunesComponent>
+                <JunesComponent user="Hello">Children2</JunesComponent>
+            </div>,
+            document.getElementById('content'));
+
+</script>
 
 </body>
 </html>
